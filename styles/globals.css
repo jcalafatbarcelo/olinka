@@ -1,16 +1,781 @@
-html,
+/*--------------------------------------------------------------
+>>> TABLA DE CONTENIDOS:
+----------------------------------------------------------------
+
+1.0 General
+  1.1 Fonts
+  1.2 Root
+  1.3 Basics
+  1.4 Elementos
+  1.5 Bloques
+    1.5.1 Bloques generales
+    1.5.2 Bloque Headers
+    1.5.3 Center Block
+    1.5.X Ajustes Page Builder
+  1.6 Animaciones
+  1.7 Menu
+  1.8 Fondos
+    1.8.1 Ajustes BG Safari                     | .isSafari
+    1.8.2 FONDOS IOS                            | @supports (-webkit-touch-callout: default)
+  1.9 Cajetín
+  1.10 Ventajas Exclusivas
+  1.11 Login Page Builder
+2.0 Secciones
+  2.1 Home
+  2.2 Habitaciones
+  2.3 ...
+3.0 Footer
+4.0 Políticas Legales
+5.0 Mobile                                      | @media (max-width: 767px)
+    5.1.0 Basics
+    5.2.0 Fondos
+        5.2.1 Fondos iOS mobile                 | .isSafari and  @supports (-webkit-touch-callout: default)
+    5.3.0 Menu
+    5.4.0 Ventajas Exclusivas
+    5.5.0 Bloques
+    5.6.0 Footer
+    5.7.0 Secciones
+        5.7.1 Habitaciones
+        5.7.2 Entorno
+        5.7.3 Galeria
+    5.8.0 Cajetín
+    5.9.0 Cookies
+6.0 Ajsutes minimobiles                        | @media (max-width: 320px)
+7.0 Mobile + Mini Tablets                      | @media (max-width: 991px) 
+8.0 No Mobile                                  | @media (min-width: 768px)
+    8.1 Menu
+    8.2 Idioma
+9.0 Only Tablets                               | @media (min-width: 768px) and (max-width: 1279px)
+    9.1 Cajetín
+    9.2 Ventajas Exclusivas
+    9.3 Menu
+    9.4 Secciones
+        9.4.1 Habitaciones
+    9.5 Footer
+10.0 Mini Tablets                               | @media (min-width: 768px) and (max-width: 991px)
+11.0 Tablets + Desktop                          | @media (min-width: 992px)
+12.0 Tablets medias y Pantallas pequeñas        | @media (min-width: 992px) and (max-width: 1279px)
+    12.1 Bloques
+    12.2 Footer
+    12.3 Secciones
+        12.3.1 Entorno
+    12.4 Ventajas Exclusivas 
+13.0 Tablets + y miniDesktop (horizontal)       | @media (min-width: 1024px) and (max-width: 1279px) and (orientation: landscape)
+14.0 Desktop + Big Tablets + Tablets Landscape  | @media (min-width: 1280px)
+15.0 Desktop + Tablets Landscape                | @media (min-width: 1280px) and (max-width: 1679px)
+16.0 Desktop                                    | @media (min-width: 1680px)
+
+*/
+
+/*--------------------------------------------------------------
+    1.0 GENERAL
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+        1.1 FONTS
+--------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&family=Roboto:wght@100;400;500;700;900&display=swap');
+/*--------------------------------------------------------------
+        1.2 ROOT
+--------------------------------------------------------------*/
+
+ :root {
+
+    --kp-main-color: #003504;
+    --kp-alt-color: #2F2F2F;
+    --kp-main-btncolor: #003504;
+    --kp-alt-btncolor: #2F2F2F;
+
+    /* MENÚ DE NAVEGACIÓN */
+    /* TAMAÑO TIPOGRAFÍAS */
+    --kp-font-h1: 65px;
+    --kp-font-h1-small: 40px;
+    --kp-font-h2: 40px;
+    --kp-font-h2-small: 30px;
+    --kp-font-h3: 30px;
+    --kp-font-h3-small: 22px;
+    --kp-font-h4: 25px;
+    --kp-font-p: 16px;
+    --kp-font-p-big: 20px;
+    --kp-font-p-min: 12px;
+    /* FAMILIA TIPOGRAFÍAS */
+    --kp-main-font: 'Roboto', sans-serif;
+    --kp-alt-font: 'New Rocker', cursive;
+    /* MAX WIDTH */
+    --kp-width: 1379px;
+    accent-color: #003504;
+    --kp-selection-text-color: var(--kp-main-color);
+}
+
+/* Modificaciones Temporales Pair Programming */
+
+
+/*--------------------------------------------------------------
+    1.3 Basics
+--------------------------------------------------------------*/
+
+* { box-sizing: border-box; letter-spacing: 0.01em; will-change: auto !important; }
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
 }
-
+body, div, ul, li, a, span, p, table, td, tr, button, input, select, label
+{
+    font-family: var(--kp-main-font);
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-family: var(--kp-alt-font);
+}
+/* Link */
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: underline;
 }
 
-* {
-  box-sizing: border-box;
+a:hover {
+    color: inherit;
+    text-decoration: underline;
 }
+
+/* Opacidades */
+.opacity_none { opacity: 1; }
+.opacity0 { opacity: 0.0; }
+.opacity1 { opacity: 0.1; }
+.opacity2 { opacity: 0.2; }
+.opacity3 { opacity: 0.3; }
+.opacity4 { opacity: 0.4; }
+.opacity5 { opacity: 0.5; }
+.opacity6 { opacity: 0.6; }
+.opacity7 { opacity: 0.7; }
+.opacity8 { opacity: 0.8; }
+.opacity9 { opacity: 0.9; }
+
+/* Colores */
+.color_main, .color_main em, .color_main h1, .color_main h2, .color_main h3, .color_main p { color: var(--kp-main-color); }
+.color_alt, .color_alt em, .color_alt h1, .color_alt h2, .color_alt h3, .color_alt p { color: var(--kp-alt-color); }
+
+.color_blanco, .color_blanco em, .color_blanco h1, .color_blanco h2, .color_blanco h3, .color_blanco p  { color: #fff; }
+
+
+
+/* Backgrounds */
+.no_fondo { background-color: transparent; }
+
+.fondo_main { background-color: var(--kp-main-color); }
+.fondo_alt { background-color: var(--kp-alt-color); }
+
+/** Este "negro" puede ser distinto, revisar en mockup **/
+/***
+* Agregamos todos los fondos lisos que veamos en el mockup
+.fondo_azul { background-color: #7AC1DF; }
+.fondo_crema { background-color: #FAFAF2; }
+*/
+
+/* Selection:
+ * NOTA: Si --kp-main-color es muy claro modificar el color: #FFF por el negro
+*/
+::selection {
+    background: var(--kp-main-color);
+    color: #fff;
+}
+
+/*--------------------------------------------------------------
+    1.4 Elementos
+--------------------------------------------------------------*/
+
+h1
+{
+    font-size: var(--kp-font-h1);
+}
+h1 > small
+{
+  display: block;
+  font-size: 30px;
+  font-family: var(--kp-main-font);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+[class*=bg-header-] h1
+{
+    color: #FFF;
+    text-shadow: 1px 1px 5px rgba(0 0 0 / .5);
+}
+
+h2
+{
+    font-size: var(--kp-font-h2);
+}
+h2 > small
+{
+    font-size: var(--kp-font-h2-small);
+}
+
+h3
+{
+    font-size: var(--kp-font-h3);
+}
+h3 > small
+{
+    font-size: var(--kp-font-h3-small);
+}
+
+p {
+    font-family: var(--kp-main-font);
+    font-size: var(--kp-font-p);
+    color: var(--kp-alt-color);
+    line-height: 160%;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+p:last-of-type {
+    padding-bottom: 0;
+}
+strong, .bold { font-weight: 700; }
+
+em { color: inherit; }
+
+/** BOTONES **/
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--kp-main-btncolor);
+    color: var(--kp-alt-btncolor);
+    cursor: pointer;
+    border: 0 none;
+    border-radius: 2px;
+    font-family: var(--kp-main-font);
+    font-size: 15px;
+    font-weight: 700;
+    height: 47px;
+    min-height: 47px;
+    max-width: 310px;
+    min-width: 280px;
+    padding: 5px;
+    text-decoration: none;
+    width: 100%;
+    text-transform: uppercase;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.btn:hover {
+    color: var(--kp-main-btncolor);
+    background-color: var(--kp-alt-btncolor);
+    text-decoration: none;
+}
+
+.btn-alt {
+    background-color: var(--kp-alt-btncolor);
+    color: var(--kp-main-btncolor);
+    border: initial;
+}
+
+.btn-alt:hover {
+    color: var(--kp-alt-btncolor);
+    background-color: var(--kp-main-btncolor);
+}
+
+.btn.btn-blanco
+{
+    background-color: #fff;
+    color:var(--kp-alt-btncolor);
+    border: none;
+}
+.btn.min { min-width: auto; padding: 5px 25px; }
+
+
+/*--------------------------------------------------------------
+    1.5 Bloques
+--------------------------------------------------------------*/
+    /*--------------------------------------------------------------
+        1.5.1 Bloques generales
+    --------------------------------------------------------------*/
+    
+    .content {
+        max-width: var(--kp-width);
+        margin: 80px auto;
+    }
+
+    /*--------------------------------------------------------------
+        1.5.2 Bloque Headers
+    --------------------------------------------------------------*/
+    
+    /*--------------------------------------------------------------
+        1.5.3 Center Block
+    --------------------------------------------------------------*/
+    .center_block
+    {
+        padding: 90px 0;
+    }
+    .center_block.clear_up
+    {
+        padding: 0 0 90px 0;
+        
+    }
+
+    .center_block.clear_down
+    {
+        padding:90px 0 0 0;
+        
+    }
+
+    .center_block h2 {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+
+
+/*--------------------------------------------------------------
+    1.6 Animaciones
+--------------------------------------------------------------*/
+
+@-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes slide-out-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+  }
+  @keyframes slide-out-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+  }
+    /**
+    * ----------------------------------------
+    * animation scale-up-ver-top
+    * ----------------------------------------
+    */
+    @-webkit-keyframes scale-up-ver-top {
+        0% {
+        -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+        100% {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+    }
+    @keyframes scale-up-ver-top {
+        0% {
+        -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+        100% {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+    }
+  
+    .scale-up-ver-top {
+        -webkit-animation: scale-up-ver-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                animation: scale-up-ver-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    /**
+    * ----------------------------------------
+    * animation scale-down-ver-top
+    * ----------------------------------------
+    */
+    @-webkit-keyframes scale-down-ver-top {
+        0% {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+        100% {
+        -webkit-transform: scaleY(0);
+                transform: scaleY(0);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+    }
+    @keyframes scale-down-ver-top {
+        0% {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+        100% {
+        -webkit-transform: scaleY(0);
+                transform: scaleY(0);
+        -webkit-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+        }
+    }
+  
+    .scale-down-ver-top {
+        -webkit-animation: scale-down-ver-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation: scale-down-ver-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+/*--------------------------------------------------------------
+    1.7 Menu
+--------------------------------------------------------------*/
+.nav-header {
+    position: fixed;
+    min-height: 50px;
+    background-color: #2f2f2f;
+    width: 100%;
+    top: 0;
+  }
+  .nav-header ul.menu-ppal {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    list-style: none;
+  }
+  .nav-header ul.menu-ppal > li {
+    display: flex;
+    padding: 10px;
+    overflow: visible;
+    cursor: pointer;
+  }
+  .nav-header ul.menu-ppal > li > ul.menu-sec {
+    position: fixed;
+    top: 50px;
+    background-color: var(--kp-alt-color);
+    padding: 0;
+    list-style: none;
+    margin-left: -10px;
+    display:none;
+  }
+  .nav-header ul.menu-ppal > li.parent.leave > ul.menu-sec
+  {
+    display: block; 
+    -webkit-animation: scale-down-ver-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-down-ver-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  .nav-header ul.menu-ppal > li.parent:hover > ul.menu-sec,
+  .nav-header ul.menu-ppal > li.parent.activo > ul.menu-sec
+  {
+    display: block;    
+    -webkit-animation: scale-up-ver-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-ver-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+  .nav-header ul.menu-ppal > li > ul.menu-sec > li > a {
+    padding: 10px 30px;
+    display: flex;
+  }
+  .container {
+    margin-top: 70px;
+  }
+  .nav-header ul.menu-ppal > li > ul.menu-sec > li:last-of-type {
+    margin-bottom: 10px;
+  }
+  .nav-header ul.menu-ppal > li > ul.menu-sec > li:hover {
+    color: var(--kp-alt-color);
+    background-color: #9d9d9d;
+  }
+  .nav-header ul.menu-ppal > li > ul.menu-sec > li:first-of-type {
+    margin-top: 10px;
+  }
+  
+/*--------------------------------------------------------------
+    1.8 FONDOS
+--------------------------------------------------------------*/
+[class*=bg-header-]
+{
+    width: 100%;
+    min-height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-header-olinka{ background-image: url(../public/bg/bg-header-olinka.jpg);}
+
+
+
+/*--------------------------------------------------------------
+    2.0 Secciones
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+    2.1 HOME
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+    2.2 Olinka Mod
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+    2.3 ...
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+    3.0 Footer
+--------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------
+    5.0 MOBILE
+--------------------------------------------------------------*/
+
+@media (max-width: 767px) {
+     :root {
+        --kp-font-h1: 46px;
+        --kp-font-h1-small: 25px;
+        --kp-font-h2: 35px;
+        --kp-font-h2-small: 18px;
+        --kp-font-h3: 20px;
+        --kp-font-h3-small: 14px;
+        --kp-font-h4: 16px;
+        --kp-font-h5: 22px;
+        --kp-font-h6: 20px;
+        --kp-font-p: 15px;
+        --kp-width: 90%;
+        --kp-menu-height: 60px;
+        --kp-modal-altbgcolor: var(--kp-main-btncolor);
+        --kp-be-specialcolor: var(--kp-main-btncolor);
+    }
+    /*--------------------------------------------------------------
+        5.1.0 Basics
+    --------------------------------------------------------------*/
+    h1 {
+
+    }
+    h1 > small, h1 > em {
+        
+    }
+    .color_blanco h2 {
+
+    }
+    .h1_solo h1
+    {
+        
+    }
+    h2
+    {
+        
+    }
+    h2 > small, h2 > em {
+        
+    }
+    .oricon-close:before {
+        
+    }
+    .text_center h2 {
+    }
+    .or_home_class h1 > small, 
+    .or_home_class h1 > em { 
+
+    }
+    /*--------------------------------------------------------------
+        5.2.0 Fondos
+    --------------------------------------------------------------*/
+    
+    /*--------------------------------------------------------------
+        5.3.0 Menu
+    --------------------------------------------------------------*/
+    
+    /*--------------------------------------------------------------
+        5.4.0 Bloques
+    --------------------------------------------------------------*/
+    
+    /*--------------------------------------------------------------
+        5.5.0 Footer
+    --------------------------------------------------------------*/
+
+    /*--------------------------------------------------------------
+        5.7.0 Secciones
+    --------------------------------------------------------------*/
+        /*--------------------------------------------------------------
+            5.7.1 Home
+        --------------------------------------------------------------*/
+      
+        
+        /*--------------------------------------------------------------
+            5.7.2 Olinka Mod
+        --------------------------------------------------------------*/
+
+        
+        
+    
+}
+
+
+
+/*--------------------------------------------------------------
+    6.0 Ajsutes minimobiles
+--------------------------------------------------------------*/
+@media (max-width: 320px) {
+
+    
+}
+
+
+
+/*--------------------------------------------------------------
+    7.0 Mobile + Mini Tablets
+--------------------------------------------------------------*/
+
+@media (max-width: 991px) 
+{
+    :root{
+        --kp-width-be: 100%;
+    }
+}
+
+/*--------------------------------------------------------------
+    8.0 No Mobile
+--------------------------------------------------------------*/
+@media (min-width: 768px)/** NO MOBILE **/
+{
+    /*--------------------------------------------------------------
+        8.1 Menu
+    --------------------------------------------------------------*/
+    
+
+} 
+
+/*--------------------------------------------------------------
+    9.0 Only Tablets
+--------------------------------------------------------------*/
+@media (min-width: 768px) and (max-width: 1279px)  
+{
+    :root{
+        --kp-width-be: 100%;
+    }
+
+}
+/*--------------------------------------------------------------
+    10.0 Mini Tablets
+--------------------------------------------------------------*/
+@media (min-width: 768px) and (max-width: 991px) 
+{
+    /*--------------------------------------------------------------
+        10.1 Bloques
+    --------------------------------------------------------------*/
+
+    
+
+}
+
+/*--------------------------------------------------------------
+    11.0 Tablets + Desktop
+--------------------------------------------------------------*/
+@media (min-width: 992px) 
+{
+
+}
+
+/*--------------------------------------------------------------
+    12.0 Tablets medias y Pantallas pequeñas
+--------------------------------------------------------------*/
+@media (min-width: 992px) and (max-width: 1279px)
+{
+
+    /*--------------------------------------------------------------
+        12.1 Bloques
+    --------------------------------------------------------------*/
+
+    
+
+    /*--------------------------------------------------------------
+        12.2 Footer
+    --------------------------------------------------------------*/
+
+    
+    /*--------------------------------------------------------------
+        12.3 Secciones
+    --------------------------------------------------------------*/
+        
+    
+
+}
+
+/*--------------------------------------------------------------
+    13.0 Tablets + y miniDesktop (horizontal)
+--------------------------------------------------------------*/
+@media (min-width: 1024px) and (max-width: 1279px) and (orientation: landscape)
+{
+
+}
+/*--------------------------------------------------------------
+    14.0 Desktop + Big Tablets + Tablets Landscape
+--------------------------------------------------------------*/
+@media (min-width: 1280px)/** Desktop mínimo 1280px **/
+{
+    
+}
+
+/*--------------------------------------------------------------
+    15.0 Desktop + Tablets Landscape
+--------------------------------------------------------------*/
+@media (min-width: 1280px) and (max-width: 1679px)
+{
+        
+    /*--------------------------------------------------------------
+        15.1 Bloques
+    --------------------------------------------------------------*/
+    
+    /*--------------------------------------------------------------
+        15.2 Secciones
+    --------------------------------------------------------------*/
+        
+}
+
+/*--------------------------------------------------------------
+    16.0 Desktop
+--------------------------------------------------------------*/
+@media (min-width: 1680px)
+{
+    
+} 

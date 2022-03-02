@@ -1,7 +1,7 @@
 import HeadLayout from "../../components/HeadLayout"
 import MenuLayout from "../../components/MenuLayout"
-import Image from "next/image"
-import styles from '../../styles/Olinkamod.module.css'
+import CabeceraH1 from "../../components/CabeceraH1"
+import Link from "next/link"
 
 export default function Olinkamod ( datos )
 {
@@ -35,17 +35,17 @@ export default function Olinkamod ( datos )
     const setObjectImageSize = ( e ) => 
     {
         var rs = RECIPE_SIZE.PACKS
-        if ( e.objectID < 2500 ) // JOVRIK
+        if ( e.ID < 2500 ) // JOVRIK
         {
             rs = RECIPE_SIZE.JORVIK
         }
         else
         {
-            if ( e.objectID == 2522 )
+            if ( e.ID == 2522 )
             {
                 rs = RECIPE_SIZE.PAPELCALIDAD
             }
-            else if (e.objectID >= 2500 && e.objectID <= 2503)
+            else if (e.ID >= 2500 && e.ID <= 2503)
             {
                 rs = RECIPE_SIZE.LICENCIAS
             }
@@ -70,57 +70,19 @@ export default function Olinkamod ( datos )
             <div>
             
                 <main>
-                <div className='bg-header-olinka'>
-                    <h1>
-                    Olinka MOD
-                    <small>Life is Feudal</small>
-                    </h1>
-                </div>
-                    {console.log( datos.datos )}
-                    {
-                                                    
-                        datos.datos.map( ( e,k ) =>
-                        {
-                            return ( <div className="receta" key={k}>
-                                {
-                                    e.ImagePath != undefined
-                                        ? (
-                                            <div className="item-image">
-                                                <Image
-                                                    src={'/' + e.ImagePath.replaceAll( '\\', '/' )}
-                                                    alt={e.Name}
-                                                    width={setObjectImageSize(e).w}
-                                                    height={setObjectImageSize(e).h}
-                                                    unoptimized='true' />
-                                            </div>
-                                        )
-                                        : null
-                                }
-                                <h3>{e.Name}</h3>
-                                <div>
-                                    <p>{e.Description}</p>
-                                    <hr />
-                                </div>
-                            </div> )
-                        }
-                        )
-                        
-                    }
+                    <CabeceraH1 titulo={`Olinka MOD`} clase={`bg-header-olinka`} subtitulo={`Life is Feudal`}></CabeceraH1>
+                    <div className="center_block">
+                        <p>Nuestro MOD incluye múltiples objetos. Entre ellos podremos encontrar los siguientes:</p>
+                        <ul className="destacados">
+                            <li><Link href="olinka-mod/jorvik">Objetos del Jorvik MOD</Link></li>
+                            <li><Link href="olinka-mod/diarios">Los Diarios de Encargos</Link></li>
+                            <li><Link href="olinka-mod/licencias">Licencias de obra</Link></li>
+                            <li><Link href="olinka-mod/items">Objetos especiales del MOD</Link></li>
+                            <li><Link href="olinka-mod/packs">Packs para generar monedas</Link></li>
+                        </ul>
+                    </div>
                 </main>
             </div>
         </>
     )
-}
-
-
-export async function getServerSideProps ()
-{
-  const response = await fetch( 'http://localhost:3000/api/objetos' )
-  const datos = await response.json(response)
-  
-  return {
-    props: {
-        datos: datos.result
-    }
-  }
 }

@@ -19,7 +19,7 @@ export default function MenuLayout() {
                         <span className='menu-parent'>Life is Feudal: Your Own</span>
                         <ul className='menu-sec'>
                             <li className='menu-item'>
-                                <Link className='menu-link' href="/life-is-feudal/el-legado-de-olinka">El Legado de Olinka</Link>
+                                <Link className='menu-link' href="/life-is-feudal/nuestro-servidor">Nuestro Servidor</Link>
                             </li>
                             <li className='menu-item'>
                                 <Link className='menu-link' href="/life-is-feudal/olinka-mod">Olinka Mod</Link>

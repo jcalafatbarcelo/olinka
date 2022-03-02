@@ -11,6 +11,7 @@
     1.5.1 Bloques generales
     1.5.2 Bloque Headers
     1.5.3 Center Block
+    1.5.4 Objects List
     1.5.X Ajustes Page Builder
   1.6 Animaciones
   1.7 Menu
@@ -181,6 +182,7 @@ a:hover {
     color: #fff;
 }
 
+img { z-index: 1; }
 /*--------------------------------------------------------------
     1.4 Elementos
 --------------------------------------------------------------*/
@@ -228,6 +230,7 @@ p {
     line-height: 160%;
     font-weight: 400;
     padding-bottom: 20px;
+    margin: 0;
 }
 p:last-of-type {
     padding-bottom: 0;
@@ -242,8 +245,8 @@ em { color: inherit; }
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--kp-main-btncolor);
-    color: var(--kp-alt-btncolor);
+    background-color: var(--kp-alt-btncolor);
+    color: #fff;
     cursor: pointer;
     border: 0 none;
     border-radius: 2px;
@@ -263,8 +266,8 @@ em { color: inherit; }
 }
 
 .btn:hover {
-    color: var(--kp-main-btncolor);
-    background-color: var(--kp-alt-btncolor);
+    color: #fff;
+    background-color: var(--kp-main-btncolor);
     text-decoration: none;
 }
 
@@ -310,6 +313,7 @@ em { color: inherit; }
     .center_block
     {
         padding: 90px 0;
+        
     }
     .center_block.clear_up
     {
@@ -323,14 +327,102 @@ em { color: inherit; }
         
     }
 
-    .center_block h2 {
+    .center_block h2,
+    .center_block h3,
+    .center_block h4 {
         justify-content: center;
         align-items: center;
         text-align: center;
     }
-
-
-
+    .center_block > p{
+        display: block;
+        max-width: var(--kp-width);
+        width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .center_block > ul{
+        max-width: var(--kp-width);
+        width: 60vw;
+        margin-left: auto;
+        margin-right: auto;
+        list-style: none;
+        min-width: 300;
+    }
+    .center_block > ul.destacados > li
+    {
+        margin: 2px 0;
+        padding: 5px;
+        line-height: 1.4;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #ccc;
+        cursor: pointer;
+    }
+    .center_block > ul.destacados > li > a
+    {
+        display: flex;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        flex-grow: 1;
+        align-items: center;
+        text-decoration: none;
+    }
+    .center_block > ul.destacados > li:hover
+    {
+        background-color: #2F2F2F;
+        color: #ccc;        
+    }
+    /*--------------------------------------------------------------
+        1.5.4 Objects List
+    --------------------------------------------------------------*/
+    .object-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: calc((297px * 3) + 20px);
+        margin: 40px auto;
+        gap: 10px;
+    }
+    .object-list .receta {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        
+    }
+    .object-list .receta h3 {
+        font-size: 22px;
+    }
+    .object-list .object-info
+    {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+    }
+    .object-list .object-info .ficha-tecnica
+    {
+        display: block;
+    }
+    .object-info > p.description {
+        flex-grow: 1;
+    }
+    .object-list .item-image.builder {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background-color: #ccc;
+        padding: 5px;
+        border-radius: 11px;
+        font-size: 14px;
+        line-height: 1.4;
+        min-height: 104px;
+    }
 /*--------------------------------------------------------------
     1.6 Animaciones
 --------------------------------------------------------------*/
@@ -469,6 +561,7 @@ em { color: inherit; }
     background-color: #2f2f2f;
     width: 100%;
     top: 0;
+    z-index: 2;
   }
   .nav-header ul.menu-ppal {
     display: flex;
@@ -532,6 +625,7 @@ em { color: inherit; }
     display: flex;
     justify-content: center;
     align-items: center;
+    background-position: center;
 }
 .bg-header-olinka{ background-image: url(../public/bg/bg-header-olinka.jpg);}
 
